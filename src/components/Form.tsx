@@ -3,39 +3,34 @@ import { Radio } from '@rmwc/radio';
 
 import '@rmwc/radio/styles';
 
-import compoundInterest from '../compoundInterest';
+import compoundInterest, { CompoundInterestVariables } from '../compoundInterest';
 
 export const parseInput = (input: string): number =>
     Number.parseFloat(input.replace('$', ''));
 
 export interface FormState {
-    /** The initial principal balance. */
-    p: number,
-    /** The interest rate. */
-    r: number,
-    /** The number of times interest applied per time period. */
-    n: number,
-    /** The number of time periods elapsed. */
-    t: number,
-    /** The ammount contributed at each time preiod. */
-    c: number,
-    /** The number of times contributed per time period. */
-    cn: number
+    vars: CompoundInterestVariables
 }
 
 export interface FormProps {
-    onChange?: (total: number, principle: number) => void
+    onChange?: (
+        total: number,
+        principle: number,
+        vars: CompoundInterestVariables
+    ) => void
 }
 
 export default class Form extends Component<FormProps> {
 
     state: FormState = {
-        p: 10000,
-        r: 0.1,
-        n: 1,
-        t: 2,
-        c: 100,
-        cn: 1
+        vars: {
+            p: 10000,
+            r: 0.1,
+            n: 1,
+            t: 2,
+            c: 100,
+            cn: 1
+        }
     }
 
     inputHandler(key: string): ((event: React.ChangeEvent<HTMLInputElement>) => void) {
@@ -89,11 +84,11 @@ export default class Form extends Component<FormProps> {
 
     render() {
 
-        const { p, r, n, t, c, cn } = this.state;
-        const { total, principal } = compoundInterest(p, r, n, t, c, cn);
+        const { p, r, n, t, c, cn } = this.state.vars;
+        const { total, principal } = compoundInterest({ p, r, n, t, c, cn });
         const { onChange } = this.props;
 
-        if (onChange) onChange(principal, total);
+        if (onChange) onChange(principal, total, { p, r, n, t, c, cn });
 
         return (
             <div className="form panel">

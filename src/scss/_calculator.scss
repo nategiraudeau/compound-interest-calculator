@@ -6,6 +6,10 @@
     flex-direction: column;
     transition: 0.17s  linear;
 
+    .gh-link {
+        color: $theme-on-background;
+    }
+
     .mdc-icon-button::before, .mdc-icon-button::after {
         background-color: $theme-on-background;
     }
@@ -15,8 +19,19 @@
     }
 }
 
+.calculator.light .background-shape {
+    width: 100vw;
+    height: 50vh;
+    background: $theme-primary;
+    position: absolute;
+    z-index: -1;
+    transform: skewY(-25deg);
+    transform-origin: left bottom;
+    top: 0;
+    left: 0;
+}
+
 .calculator.invisible {
-    visibility: hidden;
     opacity: 0;
 }
 
@@ -107,8 +122,11 @@
     background: $theme-panel;
     padding: 40px;
     border-radius: 20px;
-    border: 2px solid $theme-panel-border;
     box-sizing: border-box;
+}
+
+.calculator.light .panel {
+    box-shadow: 0px 6px 20px -10px rgba(0, 0, 0, 0.15);
 }
 
 .panel-spacing {
@@ -119,6 +137,10 @@
     font-size: 40px;
     opacity: 0.95;
     letter-spacing: 0.2px;
+}
+
+.calculator.light .title {
+    color: $theme-on-primary;
 }
 
 .title #calculator {

@@ -11,6 +11,7 @@ import '@rmwc/icon-button/styles';
 
 import Form from './Form';
 import Output from './Output';
+import { CompoundInterestVariables } from '../compoundInterest';
 
 export function delay(milliseconds: number) {
     return new Promise(function (resolve) {
@@ -24,7 +25,15 @@ export default class Calculator extends Component {
         darkMode: false,
         principal: 0,
         visible: true,
-        total: 0
+        total: 0,
+        vars: {
+            p: 0,
+            r: 0,
+            n: 0,
+            t: 0,
+            c: 0,
+            cn: 0
+        }
     }
 
     async toggleDarkMode(force?: boolean) {
@@ -51,21 +60,22 @@ export default class Calculator extends Component {
         });
     }
 
-    handleCompoundInterest(p: number, t: number) {
+    handleCompoundInterest(p: number, t: number, vars: CompoundInterestVariables) {
 
         const { principal, total } = this.state;
 
         if (p !== principal || t !== total) {
             this.setState({
                 principal: p || 0,
-                total: t || 0
+                total: t || 0,
+                vars: vars
             });
         }
     }
 
     render() {
 
-        const { darkMode, principal, total, visible } = this.state;
+        const { darkMode, principal, total, visible, vars } = this.state;
 
         document.body.classList.toggle('dark', darkMode);
 
@@ -75,6 +85,7 @@ export default class Calculator extends Component {
                 onBackground: darkMode ? 'white' : 'black'
             }}>
                 <div className={`calculator${darkMode ? ' dark' : ' light'}${visible ? '' : ' invisible'}`}>
+                    <div className="background-shape" />
                     <div className="__content__">
                         <div className="header">
                             <h1 className="title">Compound Interest <br /> <span id="calculator">Calculator</span></h1>
@@ -86,15 +97,17 @@ export default class Calculator extends Component {
                                     }} checked={darkMode} />
                                 </div>
                                 <div className="verticle-divider" />
-                                <IconButton icon={
-                                    <Icons.GitHub />
-                                } />
+                                <a className="gh-link" target="_blank" rel="noopener noreferrer" href="https://github.com/nategiraudeau/compound-interest-calculator">
+                                    <IconButton icon={
+                                        <Icons.GitHub />
+                                    } />
+                                </a>
                             </div>
                         </div>
                         <div className="calculator-content">
-                            <Form onChange={(p, t) => this.handleCompoundInterest(p, t)} />
+                            <Form onChange={(principle, total, vars) => this.handleCompoundInterest(principle, total, vars)} />
                             <div className="panel-spacing" />
-                            <Output principal={principal} total={total} />
+                            <Output vars={vars} principal={principal} total={total} />
                         </div>
                     </div>
                     <footer className="footer">
