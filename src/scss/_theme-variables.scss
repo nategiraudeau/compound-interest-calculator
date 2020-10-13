@@ -17,8 +17,8 @@
     --theme-contrast-11: rgba(255, 255, 255, 0.11);
     --theme-contrast-17: rgba(255, 255, 255, 0.17);
 
-    --mdc-theme-primary: #ff274e;
-    --mdc-theme-secondary: #5454eb;
+    --mdc-theme-primary: #00e767;
+    --mdc-theme-secondary: #00e767;
   } @else {
     --theme-background: #ffffff;
     --mdc-theme-on-primary: white;
@@ -43,6 +43,7 @@
 }
 
 $theme-primary: var(--mdc-theme-primary, #2954ff);
+$theme-on-primary: var(--mdc-theme-on-primary, white);
 
 $theme-background: var(--theme-background, #ffffff);
 $theme-on-background: var(--theme-on-background, #28282f);

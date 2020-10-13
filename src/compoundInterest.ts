@@ -1,10 +1,5 @@
 
-export interface FutureBalance {
-    principal: number,
-    total: number
-}
-
-export default function compoundInterest(
+export interface CompoundInterestVariables {
     /** The initial principal balance. */
     p: number,
     /** The interest rate. */
@@ -17,7 +12,18 @@ export default function compoundInterest(
     c: number,
     /** The number of times contributed per time period. */
     cn: number
+}
+
+export interface FutureBalance {
+    principal: number,
+    total: number
+}
+
+export default function compoundInterest(
+    args: CompoundInterestVariables
 ): FutureBalance {
+
+    const { p, r, n, t, c, cn } = args;
 
     let total = p;
     let principal = p;
