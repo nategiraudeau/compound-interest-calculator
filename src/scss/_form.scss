@@ -1,0 +1,145 @@
+@import 'theme-variables';
+
+.form {
+    flex-basis: 100%;
+}
+
+.form .text-input {
+    outline: none;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 2px solid $theme-contrast-04;
+    color: $theme-on-background;
+    background: none;
+    border-radius: 4px;
+    transition: border-color 0.1s;
+    width: 100%;
+    flex-shrink: 0;
+    height: 53px;
+}
+
+.text-input, .text-input-trailing {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.form .text-input:hover { border-color: $theme-contrast-11; }
+
+.form .text-input:hover + .text-input-trailing { background-color: $theme-contrast-11; }
+
+.form .text-input:focus {
+    border-color: $theme-primary;
+    transition: border-color 0.17s;
+}
+
+.form .text-input:focus + .text-input-trailing {
+    background-color: $theme-primary;
+    color: $theme-background;
+    transition: 0.17s;
+}
+
+.text-input-extended {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.text-input-extended .text-input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    flex-basis: -moz-calc(100% - 55px);
+    flex-basis: -webkit-calc(100% - 55px);
+    flex-basis: -o-calc(100% - 55px);
+    flex-basis: calc(100% - 55px);
+    width: auto;
+}
+
+.text-input-extended.large .text-input {
+    flex-basis: -moz-calc(100% - 95px);
+    flex-basis: -webkit-calc(100% - 95px);
+    flex-basis: -o-calc(100% - 95px);
+    flex-basis: calc(100% - 95px);
+}
+
+.text-input-extended.large .text-input-trailing {
+    width: 95px;
+}
+
+.text-input-extended .text-input-trailing {
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: $theme-contrast-04;
+    height: 100%;
+    height: 53px;
+    width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    transition: 0.1s, color 0.05s;
+    cursor: text;
+}
+
+.form-row {
+    display: flex;
+}
+
+.form-row .row-item {
+    width: 100%;
+}
+
+.form-row .row-space {
+    width: 52px;
+}
+
+.form-row .row-item .radio-group {
+    margin-top: 14px;
+}
+
+.radio-group .spacing {
+    width: 12px;
+    display: inline-block;
+}
+
+.radio label {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    opacity: 0.85;
+}
+
+.form h4 {
+    margin: 16px 0;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    opacity: 0.97;
+}
+
+//
+// ------------------------------------------
+//
+
+.form .mdc-radio .mdc-radio__native-control:enabled:not(:checked) + .mdc-radio__background .mdc-radio__outer-circle {
+    border-color: $theme-contrast-17;
+}
+
+.form .mdc-radio .mdc-radio__ripple::before {
+    transition: 0.25s;
+}
+
+.form .mdc-radio__outer-circle {
+    transition: 0.2s;
+}
+
+.form .mdc-radio__native-control:checked + .mdc-radio__background .mdc-radio__outer-circle, .mdc-radio__native-control:disabled + .mdc-radio__background .mdc-radio__outer-circle {
+    transition: 0.3s;
+}
+
+.form .mdc-radio__native-control:checked + .mdc-radio__background .mdc-radio__inner-circle {
+    transition-duration: 0.7s;
+    transition-timing-function: cubic-bezier(0.19, 0.79, 0, 1);
+}

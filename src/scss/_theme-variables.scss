@@ -1,0 +1,60 @@
+
+@mixin theme-data($dark-theme: false) {
+  @if $dark-theme {
+    --theme-background: #20242f;
+    --mdc-theme-on-primary: #15171f;
+    --theme-on-background:  #ffffff;
+    --theme-panel: #262c38;
+    --theme-panel-border: transparent;
+    --theme-divider: #272a33;
+    --theme-switch-unchecked: #6a738b;
+    --theme-switch-unchecked-track: #51586b;
+
+    --theme-contrast-02: rgba(255, 255, 255, 0.02);
+    --theme-contrast-04: rgba(255, 255, 255, 0.04);
+    --theme-contrast-05: rgba(255, 255, 255, 0.05);
+    --theme-contrast-08: rgba(255, 255, 255, 0.08);
+    --theme-contrast-11: rgba(255, 255, 255, 0.11);
+    --theme-contrast-17: rgba(255, 255, 255, 0.17);
+
+    --mdc-theme-primary: #ff274e;
+    --mdc-theme-secondary: #5454eb;
+  } @else {
+    --theme-background: #ffffff;
+    --mdc-theme-on-primary: white;
+    --theme-on-background: #28282f;
+    --theme-panel: #ffffff;
+    --theme-panel-border: rgba(0, 0, 20, 0.04);
+    --theme-divider: rgba(0, 0, 20, 0.04);
+    --theme-switch-unchecked: #fff;
+
+    --theme-contrast-02: rgba(0, 0, 0, 0.02);
+    --theme-contrast-04: rgba(0, 0, 0, 0.04);
+    --theme-contrast-05: rgba(0, 0, 0, 0.05);
+    --theme-contrast-08: rgba(0, 0, 0, 0.08);
+    --theme-contrast-11: rgba(0, 0, 0, 0.11);
+    --theme-contrast-17: rgba(0, 0, 0, 0.17);
+
+    --mdc-theme-primary: #2954ff;
+    --mdc-theme-secondary: #2954ff;
+  }
+  // --mdc-theme-primary: #00e767;
+  // --mdc-theme-secondary: #00e767;
+}
+
+$theme-primary: var(--mdc-theme-primary, #2954ff);
+
+$theme-background: var(--theme-background, #ffffff);
+$theme-on-background: var(--theme-on-background, #28282f);
+$theme-panel: var(--theme-panel, #f8f8f8);
+$theme-panel-border: var(--theme-panel-border, rgba(0, 0, 20, 0.04));
+$theme-divider: var(--theme-divider, rgba(0, 0, 20, 0.04));
+$theme-switch-unchecked: var(--theme-switch-unchecked, #fff);
+$theme-switch-unchecked-track: var(--theme-switch-unchecked-track, black);
+
+$theme-contrast-02: var(--theme-contrast-02, rgba(0, 0, 0, 0.02));
+$theme-contrast-04: var(--theme-contrast-04, rgba(0, 0, 0, 0.04));
+$theme-contrast-05: var(--theme-contrast-05, rgba(0, 0, 0, 0.05));
+$theme-contrast-08: var(--theme-contrast-08, rgba(0, 0, 0, 0.08));
+$theme-contrast-11: var(--theme-contrast-11, rgba(0, 0, 0, 0.11));
+$theme-contrast-17: var(--theme-contrast-17, rgba(0, 0, 0, 0.17));

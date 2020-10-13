@@ -1,0 +1,78 @@
+@import 'theme-variables';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@461&display=swap');
+
+.output {
+    width: 500px;
+}
+
+.output hr {
+    margin: 20px auto 12px;
+    border: none;
+    border-bottom: 2px solid $theme-contrast-11;
+    width: 50px;
+    max-width: 100%;
+}
+
+.future-balance {
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+.output-total {
+    text-align: center;
+    object-fit: scale-down;
+    width: 256px;
+    box-sizing: border-box;
+    margin: 0px auto;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 56px;
+}
+
+.too-much-money {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 36px;
+    opacity: 0.9;
+}
+
+.too-much-money svg {
+    opacity: 0.6;
+}
+
+.output .save-button {
+    overflow: hidden;
+    margin: auto;
+    margin-top: 28px;
+    display: block;
+    width: 200px;
+    font-weight: 700;
+    font-size: 18px;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 22px;
+}
+
+.calculator .output .save-button {
+    box-shadow: 0px 12px 20px -4px rgba(0, 0, 40, 0.1),
+                0px 12px 60px -6px $theme-primary;
+}
+
+.calculator.dark .output .save-button {
+    box-shadow: 0px 6px 30px -4px rgba(0, 0, 40, 0.2),
+                0px 4px 40px -14px $theme-primary;
+}
+
+.too-much-money h2 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.output .mdc-button .mdc-button__ripple::before {
+    transition: 0.23s;
+}
