@@ -4,6 +4,7 @@
 
 .output {
     width: 500px;
+    animation: slide-up 0.9s cubic-bezier(0.32, 0.78, 0, 1);
 }
 
 .output hr {

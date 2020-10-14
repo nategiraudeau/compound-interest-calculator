@@ -37,10 +37,15 @@ export default class Form extends Component<FormProps> {
         return (e) => {
             e.preventDefault();
 
+            let { vars } = this.state;
+
             const value = parseInput(e.currentTarget.value);
 
             this.setState({
-                [key]: value
+                vars: {
+                    ...vars,
+                    [key]: value
+                }
             });
         }
     }
@@ -59,27 +64,36 @@ export default class Form extends Component<FormProps> {
     handleRate(e: React.ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
 
+        let { vars } = this.state;
+
         this.setState({
-            r: this.parseRate(e.currentTarget.value) || 0
+            vars: {
+                ...vars,
+                r: this.parseRate(e.currentTarget.value) || 0
+            }
         });
     }
 
     setContributionFrequency(frequency: string) {
         let cn = 1;
 
+        let { vars } = this.state;
+
         if (frequency === 'daily') cn = 365;
         if (frequency === 'monthly') cn = 12;
 
-        this.setState({ cn });
+        this.setState({ vars: { ...vars, cn } });
     }
 
     setCompoundFrequency(frequency: string) {
         let n = 1;
 
+        let { vars } = this.state;
+
         if (frequency === 'daily') n = 365;
         if (frequency === 'monthly') n = 12;
 
-        this.setState({ n });
+        this.setState({ vars: { ...vars, n } });
     }
 
     render() {

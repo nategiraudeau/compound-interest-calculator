@@ -95,6 +95,9 @@ export default class Calculator extends Component {
                                     <Switch className="switch" onChange={(e) => {
                                         this.toggleDarkMode(!!e.currentTarget.checked);
                                     }} checked={darkMode} />
+                                    <span className="icon">
+                                        <IconButton icon={darkMode ? <Icons.Sun /> : <Icons.Moon />} onClick={() => this.toggleDarkMode()} />
+                                    </span>
                                 </div>
                                 <div className="verticle-divider" />
                                 <a className="gh-link" target="_blank" rel="noopener noreferrer" href="https://github.com/nategiraudeau/compound-interest-calculator">
@@ -116,7 +119,7 @@ export default class Calculator extends Component {
                         </div>
                     </footer>
                 </ div>
-            </ThemeProvider>
+            </ThemeProvider >
         )
     }
 }

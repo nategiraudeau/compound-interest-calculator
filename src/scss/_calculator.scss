@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     transition: 0.17s  linear;
+    animation: fade-in 1s;
 
     .gh-link {
         color: $theme-on-background;
@@ -21,7 +22,7 @@
 
 .calculator.light .background-shape {
     width: 100vw;
-    height: 50vh;
+    height: 360px;
     background: $theme-primary;
     position: absolute;
     z-index: -1;
@@ -29,6 +30,47 @@
     transform-origin: left bottom;
     top: 0;
     left: 0;
+
+    transition: height 0.25s cubic-bezier(0.5, 0.5, 0, 1);
+}
+
+@media screen and (max-width: 960px) {
+
+    .calculator.light .background-shape {
+        height: 320px;
+    }
+}
+
+@media screen and (max-width: 905px) {
+
+    .calculator.light .header {
+        .actions {
+
+            --theme-on-background: white;
+
+            color: $theme-on-primary;
+    
+            svg {
+                color: $theme-on-primary;
+            }
+        }
+    }
+
+    .header .title {
+        font-size: 30px;
+
+        #calculator {
+            font-size: 17px;
+        }
+    }
+
+    .calculator.light .background-shape {
+        height: 500px;
+    }
+
+    .calculator.light .header .actions .verticle-divider {
+        background: rgba(white, 0.2);
+    }
 }
 
 .calculator.invisible {
@@ -42,6 +84,7 @@
     max-width: 1200px;
     box-sizing: border-box;
     margin: auto;
+    animation: slide-up 0.7s cubic-bezier(0.32, 0.78, 0, 1);
 }
 
 .header {
@@ -53,6 +96,7 @@
         display: flex;
         align-items: center;
         padding-right: 12px;
+        animation: slide-up 0.7s cubic-bezier(0.32, 0.78, 0, 1);
 
         .verticle-divider {
             height: 32px;
@@ -69,6 +113,10 @@
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.6px;
+
+    span.icon {
+        display: none;
+    }
 }
 
 .darkmode-toggle p {
@@ -116,6 +164,7 @@
 
 .calculator-content {
     display: flex;
+    animation: slide-up 0.8s cubic-bezier(0.32, 0.78, 0, 1);
 }
 
 .panel {
@@ -149,3 +198,199 @@
     letter-spacing: 1px;
     opacity: 0.7;
 }
+
+@media screen and (max-width: 1250px) {
+    .calculator-content {
+        flex-direction: column;
+    }
+
+    .calculator.light .panel {
+        box-shadow: 0px 6px 20px -10px rgba(0, 0, 0, 0.15),
+                    0px -40px 50px -10px rgba(0, 0, 60, 0.02);
+    }
+
+    .output.panel {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .panel {
+        padding-bottom: 80px;
+    }
+}
+
+@media screen and (max-width: 705px) {
+    .header {
+
+        height: 90px;
+
+        .title {
+            font-size: 22px;
+    
+            #calculator {
+                display: none;
+            }
+        }
+
+        .actions {
+            .darkmode-toggle {
+                p {
+                    font-size: 14px;
+                    margin-right: 16px;
+                    letter-spacing: 0.05px;
+                }
+            }
+
+            .verticle-divider {
+                margin: 0px 12px 0px 26px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 560px) {
+
+    .calculator .__content__ {
+        padding: 0px 24px 60px;
+    }
+
+    .panel {
+        padding: 40px 26px;
+    }
+
+    .header {
+
+        height: 90px;
+
+        .title {
+            font-size: 18px;
+        }
+
+        .actions {
+            .darkmode-toggle {
+                p, .switch {
+                    display: none;
+                }
+
+                span.icon {
+                    display: block;
+                }
+            }
+
+            .verticle-divider {
+                margin: 0px 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 430px) {
+
+    .darkmode-toggle span.icon {
+        margin-right: 6px;
+    }
+
+    .header .actions .verticle-divider {
+        display: none;
+    }
+
+    .calculator .__content__ {
+        padding: 0px 14px 60px;
+    }
+
+    .panel {
+        padding: 40px 20px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+
+    body.dark {
+        background-color: $theme-panel;
+    }
+
+    body.dark .background-shape {
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: -1;
+        width: 100vw;
+        height: 100px;
+        background-color: $theme-background;
+    }
+
+    .calculator .form.panel {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        padding-bottom: 40px;
+        border-bottom: 2px solid $theme-contrast-05;
+    }
+
+    // .calculator .form.panel::after {
+    //     content: "";
+    //     display: block;
+    //     width: 100%;
+    //     height: 2px;
+    //     background: $theme-contrast-11;
+    //     margin-top: 40px;
+    // }
+
+    .calculator .output.panel {
+        margin-top: 0px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .calculator .__content__ {
+        padding: 0px 0px 20px;
+    }
+
+    .panel {
+        padding: 40px 24px;
+    }
+
+    .form .text-input-extended .text-input-trailing {
+        font-size: 14px;
+    }
+
+    .header {
+        padding-left: 20px;
+        height: 70px;
+
+        .title {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+@media screen and (max-width: 325px) {
+    .form .text-input-extended {
+        flex-direction: column;
+        align-items: flex-end;
+
+        .text-input {
+            width: 100%;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .text-input-trailing {
+            background: none !important;
+            color: $theme-on-background !important;
+            width: auto;
+            height: 40px;
+            padding-right: 4px;
+            opacity: 0.8;
+        }
+    }
+}
+
+@keyframes slide-up { 0% { transform: translateY(400px); } }
+@-webkit-keyframes slide-up { 0% { transform: translateY(400px); } }
+@-moz-keyframes slide-up { 0% { transform: translateY(400px); } }
+
+@keyframes fade-in { 0% { opacity: 0; } }
+@-webkit-keyframes fade-in { 0% { opacity: 0; } }
+@-moz-keyframes fade-in { 0% { opacity: 0; } }

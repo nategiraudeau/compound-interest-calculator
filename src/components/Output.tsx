@@ -20,7 +20,7 @@ const Output: React.FC<Output> = ({ principal, total, vars }) => {
         return '$' + numberWithCommas(parseInt(x.toString()));
     }
 
-    function downloadTxtFile(display: string, principalDisplay: string) {
+    function downloadTxtFile(display: string) {
         const element = document.createElement("a");
         const file = new Blob([
             `
@@ -37,8 +37,6 @@ const Output: React.FC<Output> = ({ principal, total, vars }) => {
             ---
 
             Future Balance: ${display}
-
-            Principle: ${principalDisplay}
             `
         ], { type: 'text/plain' });
 
@@ -71,6 +69,8 @@ const Output: React.FC<Output> = ({ principal, total, vars }) => {
     if (totalDisplay.length >= 15) { fontSize = 24; }
     if (totalDisplay.length >= 19) { fontSize = 20; }
 
+    if (principalDisplay) { }
+
     return (
         <div className="output panel">
             <h2 className="future-balance">Future Balance</h2>
@@ -90,7 +90,7 @@ const Output: React.FC<Output> = ({ principal, total, vars }) => {
                     )
             }
             <hr />
-            <Button onClick={() => downloadTxtFile(totalDisplay, principalDisplay)} className="save-button" raised>Save</Button>
+            <Button onClick={() => downloadTxtFile(totalDisplay)} className="save-button" raised>Save</Button>
         </div>
     )
 }
