@@ -44,7 +44,7 @@ export default class Form extends Component<FormProps> {
             this.setState({
                 vars: {
                     ...vars,
-                    [key]: value
+                    [key]: value || 0
                 }
             });
         }
@@ -129,7 +129,7 @@ export default class Form extends Component<FormProps> {
                     <div className="row-item">
                         <h4>Investment Time Span</h4>
                         <label className="text-input-extended large">
-                            <input className="text-input" maxLength={2} value={t || ''} onChange={(e) => this.handleTimeSpan(e)} placeholder="0" />
+                            <input className="text-input" maxLength={3} value={t || ''} onChange={(e) => this.handleTimeSpan(e)} placeholder="0" />
                             <span className="text-input-trailing">years</span>
                         </label>
                     </div>
