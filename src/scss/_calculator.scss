@@ -192,6 +192,28 @@
     color: $theme-on-primary;
 }
 
+@media screen and (min-width: 1500px) {
+    .calculator.light .background-shape {
+        height: 450px;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .calculator.light .background-shape {
+        height: 525px;
+    }
+}
+
+@media screen and (min-width: 1900px) {
+    .calculator.light .background-shape {
+        height: 0;
+    }
+
+    .calculator.light .title {
+        color: $theme-on-background;
+    }
+} 
+
 .title #calculator {
     font-size: 20px;
     text-transform: uppercase;
