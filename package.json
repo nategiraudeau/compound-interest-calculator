@@ -2,7 +2,7 @@
   "name": "compound-interest-calculator",
   "version": "1.0.0",
   "description": "A compound interest calculator",
-  "homepage": "https://nategiraudeau.github.io/compound-interest-calculator",
+  "homepage": "https://compoundinterest.js.org",
   "dependencies": {
     "@rmwc/button": "^6.1.4",
     "@rmwc/radio": "^6.1.4",
