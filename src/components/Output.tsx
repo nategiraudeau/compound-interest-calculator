@@ -6,13 +6,13 @@ import { Button } from '@rmwc/button';
 import '@rmwc/button/styles';
 import { CompoundInterestVariables } from '../compoundInterest';
 
-export interface Output {
+export interface OutputProps {
     principal: number,
     total: number,
     vars: CompoundInterestVariables
 }
 
-const Output: React.FC<Output> = ({ principal, total, vars }) => {
+const Output: React.FC<OutputProps> = ({ principal, total, vars }) => {
 
     let { p, r, n, t, c, cn } = vars;
 
