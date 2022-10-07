@@ -79,7 +79,7 @@ const Output: React.FC<OutputProps> = ({ principal, total, vars }) => {
                 tooMuchMoney ? (
                     <div className="too-much-money">
                         <Icons.AlertTriangle size={52} />
-                        <h2>That's too much money!</h2>
+                        <h2>Exceeds maximum value (&gt; ${Number.MAX_SAFE_INTEGER})</h2>
                     </div>
                 ) : (
                         <div style={{
